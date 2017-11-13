@@ -1,0 +1,18 @@
+{
+  "features": [
+    "intent_greet", 
+    "intent_control", 
+    "entity_location", 
+    "entity_state", 
+    "entity_device", 
+    "slot_device_0", 
+    "slot_location_0", 
+    "slot_state_0", 
+    "prev_action_listen", 
+    "prev_action_restart", 
+    "prev_utter_greet", 
+    "prev_utter_change_device_state", 
+    "prev_action_change_device_state", 
+    "prev_action_show_device_state"
+  ]
+}

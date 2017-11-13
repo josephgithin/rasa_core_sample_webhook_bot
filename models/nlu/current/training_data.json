@@ -1,0 +1,197 @@
+{
+  "rasa_nlu_data": {
+    "common_examples": [
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "hey"
+      }, 
+      {
+        "entities": [], 
+        "intent": "greet", 
+        "text": "howdy"
+      }, 
+      {
+        "entities": [], 
+        "intent": "goodbye", 
+        "text": "bye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "goodbye", 
+        "text": "goodbye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "goodbye", 
+        "text": "good bye"
+      }, 
+      {
+        "entities": [], 
+        "intent": "goodbye", 
+        "text": "stop"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "that's right"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "ok"
+      }, 
+      {
+        "entities": [], 
+        "intent": "affirm", 
+        "text": "great"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 5, 
+            "end": 8, 
+            "value": "off", 
+            "entity": "state"
+          }, 
+          {
+            "start": 13, 
+            "end": 19, 
+            "value": "living", 
+            "entity": "location"
+          }, 
+          {
+            "start": 25, 
+            "end": 30, 
+            "value": "light,lights", 
+            "entity": "device"
+          }
+        ], 
+        "intent": "control", 
+        "text": "turn off the living room light"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 12, 
+            "end": 15, 
+            "value": "off", 
+            "entity": "state"
+          }, 
+          {
+            "start": 20, 
+            "end": 26, 
+            "value": "living", 
+            "entity": "location"
+          }, 
+          {
+            "start": 32, 
+            "end": 37, 
+            "value": "light", 
+            "entity": "device"
+          }
+        ], 
+        "intent": "control", 
+        "text": "please turn off the living room light"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 9, 
+            "end": 15, 
+            "value": "living", 
+            "entity": "location"
+          }, 
+          {
+            "start": 21, 
+            "end": 26, 
+            "value": "light,lights", 
+            "entity": "device"
+          }, 
+          {
+            "start": 27, 
+            "end": 30, 
+            "value": "off", 
+            "entity": "state"
+          }
+        ], 
+        "intent": "control", 
+        "text": "turn the living room light off"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 5, 
+            "end": 7, 
+            "value": "on", 
+            "entity": "state"
+          }, 
+          {
+            "start": 12, 
+            "end": 18, 
+            "value": "living", 
+            "entity": "location"
+          }, 
+          {
+            "start": 24, 
+            "end": 29, 
+            "value": "light", 
+            "entity": "device"
+          }
+        ], 
+        "intent": "control", 
+        "text": "turn on the living room light"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 12, 
+            "end": 14, 
+            "value": "on", 
+            "entity": "state"
+          }, 
+          {
+            "start": 19, 
+            "end": 25, 
+            "value": "living", 
+            "entity": "location"
+          }, 
+          {
+            "start": 31, 
+            "end": 36, 
+            "value": "light", 
+            "entity": "device"
+          }
+        ], 
+        "intent": "control", 
+        "text": "please turn on the living room light"
+      }, 
+      {
+        "entities": [
+          {
+            "start": 9, 
+            "end": 15, 
+            "value": "living", 
+            "entity": "location"
+          }, 
+          {
+            "start": 21, 
+            "end": 26, 
+            "value": "light", 
+            "entity": "device"
+          }, 
+          {
+            "start": 27, 
+            "end": 29, 
+            "value": "on", 
+            "entity": "state"
+          }
+        ], 
+        "intent": "control", 
+        "text": "turn the living room light on"
+      }
+    ], 
+    "entity_synonyms": [], 
+    "regex_features": []
+  }
+}

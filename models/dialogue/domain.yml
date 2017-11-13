@@ -1,0 +1,28 @@
+action_factory: null
+actions:
+- utter_greet
+- utter_change_device_state
+- bot.ChangeDeviceState
+- bot.ShowDeviceState
+config:
+  store_entities_as_slots: true
+entities:
+- location
+- state
+- device
+intents:
+- greet
+- control
+slots:
+  device:
+    type: text
+  location:
+    type: text
+  state:
+    type: text
+templates:
+  utter_change_device_state:
+  - text: yes. I will do the same
+  utter_greet:
+  - text: hey there!
+topics: []

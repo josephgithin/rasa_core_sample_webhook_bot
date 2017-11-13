@@ -1,0 +1,25 @@
+## story_00914561
+* _control[device=light,location=living,state=on]
+ - utter_change_device_state
+ - action_change_device_state
+ - action_show_device_state
+## story_00914562
+* _control[device=light,location=living,state=off]
+ - action_change_device_state
+ - action_show_device_state
+ ## story_00914562
+* _control[device=light,location=living,state=on]
+ - action_change_device_state
+ - action_show_device_state
+ ## story_00914562
+* _control[device=light,location=living,state=off]
+ - action_change_device_state
+ - action_show_device_state
+ ## story_00914562
+* _control[device=light,location=bed,state=on]
+ - action_change_device_state
+ - action_show_device_state
+ ## story_00914562
+* _control[device=light,location=bed,state=off]
+ - action_change_device_state
+ - action_show_device_state

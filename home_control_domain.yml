@@ -1,0 +1,28 @@
+slots:
+  location:
+    type: text
+  device:
+    type: text
+  state:
+    type: text
+  
+intents:
+ - greet
+ - control
+
+entities:
+ - location
+ - state
+ - device
+
+templates:
+  utter_greet:
+    - "hey there!"
+  utter_change_device_state:
+    - "yes. I will do the same"
+
+actions:
+  - utter_greet
+  - utter_change_device_state
+  - bot.ChangeDeviceState
+  - bot.ShowDeviceState
