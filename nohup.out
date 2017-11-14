@@ -1,0 +1,924 @@
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:rasa_nlu.components:Added 'nlp_spacy' to component cache. Key 'nlp_spacy-en'.
+Using TensorFlow backend.
+2017-11-13 22:07:03.637737: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:rasa_nlu.components:Added 'nlp_spacy' to component cache. Key 'nlp_spacy-en'.
+Using TensorFlow backend.
+2017-11-13 22:12:11.273455: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+[2017-11-13 22:15:11,597] ERROR in app: Exception on /app/chat [GET]
+Traceback (most recent call last):
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "bot.py", line 121, in chat
+    output["q"], WebhookOutputChannel("http://localhost:8060/ai/message_rasa"), output["recipient"])
+TypeError: 'NoneType' object has no attribute '__getitem__'
+127.0.0.1 - - [2017-11-13 22:15:11] "GET /app/chat HTTP/1.1" 500 412 0.003839
+DEBUG:rasa_core.tracker_store:Could not find a tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'hello' with intent '{u'confidence': 0.32896001990256613, u'name': u'greet'}' and entities  '[]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 2 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: None
+	state: None
+	location: None
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	None
+	None
+	[(u'intent_greet', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.24.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+ERROR:rasa_core.processor:Encountered an exception while running action 'action_change_device_state'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+ERROR:rasa_core.processor:coercing to Unicode: need string or buffer, NoneType found
+Traceback (most recent call last):
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/rasa_core/processor.py", line 281, in _run_action
+    events = action.run(dispatcher, tracker, self.domain)
+  File "/home/josephgithin/repos/rasa_core_sample_webhook_bot/bot.py", line 42, in run
+    utils.print_color(tracker.get_slot('state'), default_output_color)
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/rasa_core/utils.py", line 143, in print_color
+    print(wrap_with_color(text, color))
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/rasa_core/utils.py", line 139, in wrap_with_color
+    return color + text + bcolors.ENDC
+TypeError: coercing to Unicode: need string or buffer, NoneType found
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	None
+	[(u'intent_greet', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.27.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.23.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.23.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:16:46] "POST /app/chat HTTP/1.1" 200 122 0.358487
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'hi' with intent '{u'confidence': 0.35847498785166526, u'name': u'greet'}' and entities  '[]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 7 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: None
+	state: None
+	location: None
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.24.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+ERROR:rasa_core.processor:Encountered an exception while running action 'action_change_device_state'. Bot will continue, but the actions events are lost. Make sure to fix the exception in your custom code.
+ERROR:rasa_core.processor:coercing to Unicode: need string or buffer, NoneType found
+Traceback (most recent call last):
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/rasa_core/processor.py", line 281, in _run_action
+    events = action.run(dispatcher, tracker, self.domain)
+  File "/home/josephgithin/repos/rasa_core_sample_webhook_bot/bot.py", line 42, in run
+    utils.print_color(tracker.get_slot('state'), default_output_color)
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/rasa_core/utils.py", line 143, in print_color
+    print(wrap_with_color(text, color))
+  File "/home/josephgithin/.local/lib/python2.7/site-packages/rasa_core/utils.py", line 139, in wrap_with_color
+    return color + text + bcolors.ENDC
+TypeError: coercing to Unicode: need string or buffer, NoneType found
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.28.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.23.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.23.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:16:54] "POST /app/chat HTTP/1.1" 200 122 0.077246
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 15 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.39.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:17:17] "POST /app/chat HTTP/1.1" 200 122 0.061121
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 22 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.35.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:17:31] "POST /app/chat HTTP/1.1" 200 122 0.027444
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 27 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.32.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.39.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:17:55] "POST /app/chat HTTP/1.1" 200 122 0.081556
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'hello' with intent '{u'confidence': 0.32896001990256613, u'name': u'greet'}' and entities  '[]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 31 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.47.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:18:02] "POST /app/chat HTTP/1.1" 200 122 0.020100
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'hello' with intent '{u'confidence': 0.32896001990256613, u'name': u'greet'}' and entities  '[]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 33 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.32.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:18:09] "POST /app/chat HTTP/1.1" 200 122 0.021198
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 38 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.36.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.42.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:18:12] "POST /app/chat HTTP/1.1" 200 122 0.067760
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 45 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.35.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:18:14] "POST /app/chat HTTP/1.1" 200 122 0.021082
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 50 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.32.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.39.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:18:35] "POST /app/chat HTTP/1.1" 200 122 0.063243
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 57 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.35.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:18:59] "POST /app/chat HTTP/1.1" 200 122 0.027440
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'hello' with intent '{u'confidence': 0.32896001990256613, u'name': u'greet'}' and entities  '[]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 59 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.40.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:20:59] "POST /app/chat HTTP/1.1" 200 122 0.042217
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'hrllo' with intent '{u'confidence': 0.494265991302199, u'name': u'goodbye'}' and entities  '[]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 61 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+WARNING:rasa_core.featurizers:Couldn't set most probable feature 'intent_goodbye', it wasn't found in the feature list of the domain. Make sure you added all intents and entities to the domain.
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+WARNING:rasa_core.featurizers:Couldn't set most probable feature 'intent_goodbye', it wasn't found in the feature list of the domain. Make sure you added all intents and entities to the domain.
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.33.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:21:07] "POST /app/chat HTTP/1.1" 200 122 0.024129
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'hello' with intent '{u'confidence': 0.32896001990256613, u'name': u'greet'}' and entities  '[]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 63 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+WARNING:rasa_core.featurizers:Couldn't set most probable feature 'intent_goodbye', it wasn't found in the feature list of the domain. Make sure you added all intents and entities to the domain.
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+WARNING:rasa_core.featurizers:Couldn't set most probable feature 'intent_goodbye', it wasn't found in the feature list of the domain. Make sure you added all intents and entities to the domain.
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.28.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+WARNING:rasa_core.featurizers:Couldn't set most probable feature 'intent_goodbye', it wasn't found in the feature list of the domain. Make sure you added all intents and entities to the domain.
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+WARNING:rasa_core.featurizers:Couldn't set most probable feature 'intent_goodbye', it wasn't found in the feature list of the domain. Make sure you added all intents and entities to the domain.
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.35.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-13 22:21:27] "POST /app/chat HTTP/1.1" 200 122 0.274343
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 70 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.35.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_greet', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.41.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 06:23:51] "POST /app/chat HTTP/1.1" 200 122 0.125845
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 77 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.35.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 06:24:05] "POST /app/chat HTTP/1.1" 200 122 0.023862
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 82 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.32.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.39.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 06:24:16] "POST /app/chat HTTP/1.1" 200 122 0.081601
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 89 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.35.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 06:39:52] "POST /app/chat HTTP/1.1" 200 122 0.026317
+DEBUG:apscheduler.scheduler:Looking for jobs to run
+DEBUG:apscheduler.scheduler:No jobs; waiting until a job is added
+INFO:rasa_nlu.components:Added 'nlp_spacy' to component cache. Key 'nlp_spacy-en'.
+Using TensorFlow backend.
+2017-11-14 07:51:19.985485: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+DEBUG:rasa_core.tracker_store:Could not find a tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 5 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	None
+	None
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '4'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 1.00.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 500 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	None
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '5'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 1.00.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 07:58:09] "POST /app/chat HTTP/1.1" 200 122 5.179034
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 12 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 07:58:51] "POST /app/chat HTTP/1.1" 200 122 0.084146
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 19 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 07:59:00] "POST /app/chat HTTP/1.1" 200 122 0.049589
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 26 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 07:59:14] "POST /app/chat HTTP/1.1" 200 122 0.048093
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 33 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 07:59:24] "POST /app/chat HTTP/1.1" 200 122 0.058322
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 40 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 08:04:09] "POST /app/chat HTTP/1.1" 200 122 0.119150
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 47 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 08:04:16] "POST /app/chat HTTP/1.1" 200 122 0.043939
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'trailer Neil K Northern light' with intent '{u'confidence': 0.3507565953149237, u'name': u'control'}' and entities  '[{u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 52 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.41.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.45.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 0.35.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 08:09:41] "POST /app/chat HTTP/1.1" 200 122 0.087044
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 59 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.43.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.54.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 08:10:05] "POST /app/chat HTTP/1.1" 200 122 0.054294
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn on the living room light' with intent '{u'confidence': 0.66173246323741053, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 7, u'value': u'on', u'entity': 'state'}, {u'start': 12, u'extractor': u'ner_crf', u'end': 18, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 29, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 24}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 66 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: on
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 08:11:11] "POST /app/chat HTTP/1.1" 200 122 0.049800
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 73 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 08:11:37] "POST /app/chat HTTP/1.1" 200 122 0.050180
+DEBUG:rasa_core.tracker_store:Recreating tracker for id 'sender1'
+DEBUG:rasa_core.processor:Received user message 'turn off the living room light' with intent '{u'confidence': 0.66957597715206341, u'name': u'control'}' and entities  '[{u'start': 5, u'extractor': u'ner_crf', u'end': 8, u'value': u'off', u'entity': 'state'}, {u'start': 13, u'extractor': u'ner_crf', u'end': 19, u'value': u'living', u'entity': 'location'}, {u'extractor': u'ner_crf', u'end': 30, u'processors': [u'ner_synonyms'], u'value': u'light,lights', u'entity': 'device', u'start': 25}]'
+DEBUG:rasa_core.processor:Logged UserUtterance - tracker now has 80 events
+DEBUG:rasa_core.processor:Current slot values: 
+	device: light,lights
+	state: off
+	location: living
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #4 with prob 0.37.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/command_rasa HTTP/1.1" 200 None
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_change_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]]
+DEBUG:rasa_core.policies.ensemble:Predicted next action #5 with prob 0.50.
+DEBUG:urllib3.connectionpool:Starting new HTTP connection (1): localhost
+DEBUG:urllib3.connectionpool:http://localhost:8060 "POST /ai/message_rasa HTTP/1.1" 200 None
+DEBUG:rasa_core.processor:Action 'action_show_device_state' ended with events '[]'
+DEBUG:rasa_core.policies.memoization:Current tracker state [
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_listen', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_change_device_state', 1)]
+	[(u'intent_control', 1), (u'entity_location', 1), (u'entity_state', 1), (u'entity_device', 1), (u'slot_device_0', 1), (u'slot_location_0', 1), (u'slot_state_0', 1), (u'prev_action_show_device_state', 1)]]
+DEBUG:rasa_core.policies.memoization:Used memorised next action '0'
+DEBUG:rasa_core.policies.ensemble:Predicted next action #0 with prob 1.00.
+DEBUG:rasa_core.processor:Action 'action_listen' ended with events '[]'
+DEBUG:rasa_core.processor:Current topic: None
+127.0.0.1 - - [2017-11-14 08:11:52] "POST /app/chat HTTP/1.1" 200 122 0.045272
