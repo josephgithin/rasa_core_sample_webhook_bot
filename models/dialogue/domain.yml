@@ -1,6 +1,9 @@
 action_factory: null
 actions:
+- utter_default
 - utter_greet
+- utter_goodbye
+- utter_youarewelcome
 - utter_change_device_state
 - bot.ChangeDeviceState
 - bot.ShowDeviceState
@@ -12,7 +15,10 @@ entities:
 - device
 intents:
 - greet
+- thankyou
+- goodbye
 - control
+- enquire
 slots:
   device:
     type: text
@@ -23,6 +29,14 @@ slots:
 templates:
   utter_change_device_state:
   - text: yes. I will do the same
+  utter_default:
+  - text: default message
+  utter_goodbye:
+  - text: goodbye :(
   utter_greet:
   - text: hey there!
+  utter_what_to_do:
+  - text: sir, what can i do for you?
+  utter_youarewelcome:
+  - text: you're very welcome
 topics: []

@@ -1,7 +1,10 @@
 {
   "features": [
     "intent_greet", 
+    "intent_thankyou", 
+    "intent_goodbye", 
     "intent_control", 
+    "intent_enquire", 
     "entity_location", 
     "entity_state", 
     "entity_device", 
@@ -10,7 +13,10 @@
     "slot_state_0", 
     "prev_action_listen", 
     "prev_action_restart", 
+    "prev_utter_default", 
     "prev_utter_greet", 
+    "prev_utter_goodbye", 
+    "prev_utter_youarewelcome", 
     "prev_utter_change_device_state", 
     "prev_action_change_device_state", 
     "prev_action_show_device_state"
