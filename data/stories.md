@@ -1,12 +1,12 @@
 ## greet
 * _greet
-    - utter_greet
+ - utter_greet
 ## happy
 * _thankyou
-    - utter_youarewelcome
+ - utter_youarewelcome
 ## goodbye
 * _goodbye
-    - utter_goodbye
+ - utter_goodbye
 ## story_00914561
 * _control[device=light,location=living,state=on]
  - action_change_device_state
