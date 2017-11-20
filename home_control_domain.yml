@@ -8,7 +8,10 @@ slots:
   
 intents:
  - greet
+ - thankyou
+ - goodbye
  - control
+ - enquire
 
 entities:
  - location
@@ -18,11 +21,22 @@ entities:
 templates:
   utter_greet:
     - "hey there!"
+  utter_goodbye:
+    - "goodbye :("
+  utter_default:
+    - "default message"
+  utter_youarewelcome:
+    - "you're very welcome"
   utter_change_device_state:
     - "yes. I will do the same"
+  utter_what_to_do:
+    - "sir, what can i do for you?"
 
 actions:
+  - utter_default
   - utter_greet
+  - utter_goodbye
+  - utter_youarewelcome
   - utter_change_device_state
   - bot.ChangeDeviceState
   - bot.ShowDeviceState

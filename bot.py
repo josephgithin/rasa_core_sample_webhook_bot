@@ -35,13 +35,21 @@ class ChangeDeviceState(Action):
 
         data = {"state": tracker.get_slot('state'), "device": tracker.get_slot('device'),"location":tracker.get_slot('location')}
         #params = {'sessionKey': '9ebbd0b25760557393a43064a92bae539d962103','format': 'xml', 'platformId': 1}
+        state = tracker.get_slot('state')
+        device = tracker.get_slot('device')
+        location = tracker.get_slot('location')
 
-        requests.post(url,data=json.dumps(data), headers=headers)
-        dispatcher.utter_message("changing state of device..")
-        default_output_color = utils.bcolors.OKBLUE
-        utils.print_color(tracker.get_slot('state'), default_output_color)
-        utils.print_color(tracker.get_slot('device'), default_output_color)
-        utils.print_color(tracker.get_slot('location'), default_output_color)
+        if state and device and location:
+            requests.post(url,data=json.dumps(data), headers=headers)
+            dispatcher.utter_message("changing state of device..")
+            default_output_color = utils.bcolors.OKBLUE
+            utils.print_color(tracker.get_slot('state'), default_output_color)
+            utils.print_color(tracker.get_slot('device'), default_output_color)
+            utils.print_color(tracker.get_slot('location'), default_output_color)
+        else:
+            utils.print_color(tracker.get_slot('state'), default_output_color)
+            utils.print_color(tracker.get_slot('device'), default_output_color)
+            utils.print_color(tracker.get_slot('location'), default_output_color)
         return []
 
 
